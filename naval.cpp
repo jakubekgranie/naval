@@ -154,11 +154,11 @@ void walka(Flota* flota1, Flota* flota2) {
         for (int i = 0; i < 2; i++)
             for (int j = 0; j < args[i]->ships[1]; j++) {
                 Krazownik* krazownik = args[i]->krazowniki[j];
-                floty[i][j] = new LodzPodwodna(krazownik->id, krazownik->nazwa, krazownik->moc, krazownik->celnosc, krazownik->zaloga, krazownik->celnosc, krazownik->hp, krazownik->iloscDzial, krazownik->zasieg, 1, false);
+                floty[i][j + flota1->ships[0]] = new LodzPodwodna(krazownik->id, krazownik->nazwa, krazownik->moc, krazownik->celnosc, krazownik->zaloga, krazownik->celnosc, krazownik->hp, krazownik->iloscDzial, krazownik->zasieg, 1, false);
             }
         for (int i = 0; i < 2; i++)
             for (int j = 0; j < args[i]->ships[2]; j++)
-                floty[i][j] = args[i]->lpodwodne[j];
+                floty[i][j + +flota1->ships[0] + flota1->ships[1]] = args[i]->lpodwodne[j];
         cout << "\n######################\n        WALKA\n######################\n";
         bool hasEnded = false;
         while (!hasEnded) {
